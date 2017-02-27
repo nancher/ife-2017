@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>自定义checkbox和radio样式</title>
+  <style type="text/css">
+    div{
+      position: relative;
+    }
+    input{
+      display: none;
+    }
+    label{
+      display: inline-block;
+      background-image: url(bg.png);
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+    }
+    #sprite_radio_1+label{
+      background-position: -24px -10px;
+    }
+    #sprite_radio_1:checked+label{
+      background-position: -59px -10px;
+    }
+    #sprite_radio_2+label{
+      background-position: -24px -10px;
+    }
+    #sprite_radio_2:checked+label{
+      background-position: -59px -10px;
+    }
+    #sprite_checkbox_1+label{
+      background-position: -24px -32px;
+    }
+    #sprite_checkbox_1:checked+label{
+      background-position: -59px -31px;
+    }
+    .pseudo_radio+label{
+      width: 14.5px;
+      height: 14.5px;
+      border: 1px solid rgb(217, 217, 217);
+      border-radius: 50%;
+    }
+    .pseudo_radio:checked+label{
+      text-align: center;
+      border: 1px solid rgb(215, 62, 51);
+    }
+    #pseudo_radio_1:checked+label::after{
+      position: absolute;
+      top: 5px;
+      left: 5.49px;
+        content: '\a0';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: rgb(215, 62, 51);
+    }
+    #pseudo_radio_2:checked+label::after{
+      position: absolute;
+      top: 5px;
+      left: 30px;
+        content: '\a0';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: rgb(215, 62, 51);
+    }
+    #pseudo_checkbox_1+label{
+      position: absolute;
+      left: 1px;
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgb(217, 217, 217);
+    }
+    #pseudo_checkbox_1:checked+label{
+      position: absolute;
+      left: 1px;
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgb(215, 62, 51);
+    }
+    #pseudo_checkbox_1:checked+label::after{
+      position: absolute;
+      top: -1px;
+      content: '\2714';
+        color: rgb(215, 62, 51);
+        text-align: center;
+        font-size: 3px;
+        font-weight: 800;
+        transform: scale(0.8) rotate(10deg);
+    }
+  </style>
+</head>
+<body>
+  <h2>雪碧图实现</h2>
+  <div class="radio_sprite">
+    <input type="radio" id="sprite_radio_1" name="test">
+    <label for="sprite_radio_1"></label>
+    <input type="radio" id="sprite_radio_2" name="test" checked="checked">
+    <label for="sprite_radio_2"></label>
+  </div>
+  <div class="checkbox_sprite">
+    <input type="checkbox" id="sprite_checkbox_1">
+    <label for="sprite_checkbox_1"></label>
+  </div>
+  <h2>伪元素实现</h2>
+  <div class="radio_pseudo">
+    <input type="radio" id="pseudo_radio_1" class="pseudo_radio" name="test1">
+    <label for="pseudo_radio_1"></label>
+    <input type="radio" id="pseudo_radio_2" class="pseudo_radio" name="test1" checked="checked">
+    <label for="pseudo_radio_2"></label>
+  </div>
+  <div class="checkbox_pseudo">
+    <input type="radio" id="pseudo_checkbox_1">
+    <label for="pseudo_checkbox_1" id="checkbox_pseudo1"></label>
+  </div>
+</body>
+</html>
